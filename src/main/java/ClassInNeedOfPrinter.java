@@ -7,7 +7,7 @@ import javax.inject.Inject;
 public class ClassInNeedOfPrinter {
 
     @Inject
-    @Default
+    @Console
     private Printer printer;
 
     public void doSomeWork(){

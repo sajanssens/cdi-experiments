@@ -59,4 +59,15 @@ public class StartTheCDIContainer {
 
         worker.doSomeWork();
     }
+
+    @Test
+    public void finallyUsingTheConsolePrinter() throws Exception {
+        WeldContainer container = new Weld().initialize();
+
+        final Instance<Object> instance = container.instance();
+        ClassInNeedOfPrinter worker = instance.select(ClassInNeedOfPrinter.class).get();
+
+        worker.doSomeWork();
+
+    }
 }

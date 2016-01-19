@@ -4,7 +4,7 @@ import javax.enterprise.inject.Default;
 /**
  * Created by Administrator on 1/18/2016.
  */
-@Default
+@File
 public class FilePrinter implements Printer {
 
 
