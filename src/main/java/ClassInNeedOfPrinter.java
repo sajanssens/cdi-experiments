@@ -1,3 +1,4 @@
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 
 /**
@@ -6,6 +7,7 @@ import javax.inject.Inject;
 public class ClassInNeedOfPrinter {
 
     @Inject
+    @Default
     private Printer printer;
 
     public void doSomeWork(){
