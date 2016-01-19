@@ -11,10 +11,22 @@ public class StartTheCDIContainer {
 
     @Test
     public void startContainer(){
+
         WeldContainer container = new Weld().initialize();
 
-       ConsolePrinter printer=  container.instance().select(ConsolePrinter.class).get();
+        final Instance<Object> instance = container.instance();
+        ConsolePrinter printer=  instance.select(ConsolePrinter.class).get();
 
-       printer.printMessage("Hello CDI!");
+        printer.printMessage("Hello CDI!");
+    }
+
+    @Test
+    public void getBeanFromCDIWithDependenciesInjected(){
+        WeldContainer container = new Weld().initialize();
+
+        final Instance<Object> instance = container.instance();
+        ClassInNeedOfPrinter worker = instance.select(ClassInNeedOfPrinter.class).get();
+
+        worker.doSomeWork();
     }
 }
