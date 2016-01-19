@@ -29,4 +29,14 @@ public class StartTheCDIContainer {
 
         worker.doSomeWork();
     }
+
+    @Test(expected = org.jboss.weld.exceptions.DeploymentException.class)
+    public void howDoesTheContainerReactWhenMoreThanOneBeanCanBeInjected(){
+        WeldContainer container = new Weld().initialize();
+
+        final Instance<Object> instance = container.instance();
+        ClassInNeedOfPrinter worker = instance.select(ClassInNeedOfPrinter.class).get();
+
+        worker.doSomeWork();
+    }
 }

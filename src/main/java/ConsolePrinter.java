@@ -6,6 +6,6 @@ import javax.enterprise.context.Dependent;
 public class ConsolePrinter implements Printer {
 
     public void printMessage(String message){
-        System.out.println("Message received: " + message);
+        System.out.println("Printed: " + message + " => to console" );
     }
 }
