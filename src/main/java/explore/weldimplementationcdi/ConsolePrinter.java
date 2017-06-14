@@ -1,3 +1,4 @@
+package explore.weldimplementationcdi;
 import javax.enterprise.context.Dependent;
 
 /**

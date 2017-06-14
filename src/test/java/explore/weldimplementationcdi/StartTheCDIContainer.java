@@ -1,8 +1,12 @@
+package explore.weldimplementationcdi;
 import org.jboss.weld.environment.se.Weld;
 import org.jboss.weld.environment.se.WeldContainer;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 import javax.enterprise.inject.Instance;
+import javax.enterprise.inject.se.SeContainer;
 
 /**
  * Created by Administrator on 1/18/2016.
@@ -69,5 +73,16 @@ public class StartTheCDIContainer {
 
         worker.doSomeWork();
 
+    }
+    
+    @Test
+	public void usingAStandardCDIInterfaceToInteractWithWeldContainer() throws Exception {
+    	WeldContainer weldContainer = new  Weld().initialize();
+
+    	SeContainer cdiContainer=(SeContainer)weldContainer;
+    	
+    	ClassInNeedOfPrinter worker = cdiContainer.select(ClassInNeedOfPrinter.class).get();
+    	
+    	worker.doSomeWork();
     }
 }
